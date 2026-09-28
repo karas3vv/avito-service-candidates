@@ -1,0 +1,107 @@
+{
+  "baseline_tune": {
+    "recall": 0.5035000000000001,
+    "single_click": 0.505,
+    "pool_recall": 0.9775,
+    "queries": 400
+  },
+  "baseline_test": {
+    "recall": 0.55375,
+    "single_click": 0.555,
+    "pool_recall": 0.96625,
+    "queries": 400
+  },
+  "bm25_tune": {
+    "recall": 0.7426666666666667,
+    "single_click": 0.7425,
+    "pool_recall": 0.9775,
+    "queries": 400
+  },
+  "bm25_test": {
+    "recall": 0.7270833333333333,
+    "single_click": 0.7275,
+    "pool_recall": 0.96625,
+    "queries": 400
+  },
+  "selected_trees": 250,
+  "model_tune": {
+    "recall": 0.9174166666666668,
+    "single_click": 0.9175,
+    "pool_recall": 0.9775,
+    "queries": 400
+  },
+  "model_test": {
+    "recall": 0.92375,
+    "single_click": 0.9225,
+    "pool_recall": 0.96625,
+    "queries": 400
+  },
+  "cold_item_test": {
+    "recall": 0.9228571428571428,
+    "single_click": 0.9228571428571428,
+    "pool_recall": 0.97,
+    "queries": 350
+  },
+  "fit_queries": 2398,
+  "normalized_train_validation_overlap": 0,
+  "features": {
+    "bm_relative": 545,
+    "filter": 414,
+    "coverage_description": 400,
+    "log_reviews": 387,
+    "log_location_inventory": 379,
+    "log_distance": 350,
+    "char_relative": 295,
+    "location_probability": 273,
+    "geo": 261,
+    "log_price": 247,
+    "micro": 244,
+    "title_length": 243,
+    "description": 227,
+    "coverage_params": 213,
+    "bm_description": 207,
+    "rating": 207,
+    "char": 193,
+    "word_relative": 187,
+    "bm_title_relative": 182,
+    "coverage_title": 174,
+    "word": 171,
+    "bm_params": 167,
+    "bm_title": 161,
+    "micro_confidence": 158,
+    "bm_hybrid": 137,
+    "query_length": 73,
+    "history_count": 54,
+    "phone_hidden": 16,
+    "message_forbidden": 15,
+    "exact_title_phrase": 11,
+    "has_center": 6,
+    "same_location": 3
+  },
+  "tuning": [
+    {
+      "trees": 50,
+      "recall": 0.9024166666666668
+    },
+    {
+      "trees": 100,
+      "recall": 0.9049166666666667
+    },
+    {
+      "trees": 150,
+      "recall": 0.9124166666666668
+    },
+    {
+      "trees": 200,
+      "recall": 0.9174166666666668
+    },
+    {
+      "trees": 250,
+      "recall": 0.9174166666666668
+    },
+    {
+      "trees": 300,
+      "recall": 0.9149166666666667
+    }
+  ]
+}

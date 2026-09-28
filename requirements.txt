@@ -3,3 +3,6 @@ pandas==2.3.3
 pyarrow==25.0.1
 scipy==1.15.3
 scikit-learn==1.7.2
+lightgbm==4.7.0
+snowballstemmer==3.0.1
+joblib==1.5.3

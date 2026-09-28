@@ -4,4 +4,4 @@ __pycache__/
 *.py[cod]
 .venv/
 .pytest_cache/
-
+.cache_v2/
