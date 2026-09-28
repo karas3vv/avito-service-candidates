@@ -190,6 +190,25 @@ recall = np.mean([str(item_id) in set(pred)
                   for item_id, pred in zip(val.item_id, val_predictions)])
 print("Held-out single-click Recall@50", round(float(recall), 4),
       "n=", len(val), flush=True)
+# Diagnose misses on the exact holdout used for the quality estimate.
+val_hits = np.array([str(item_id) in set(pred)
+                     for item_id, pred in zip(val.item_id, val_predictions)])
+val_same_location = (val.search_location_id.to_numpy() ==
+                     val.item_location_id.to_numpy())
+val_rare_query = val.query_count.to_numpy() <= 5
+val_title_contains_query = np.array([
+    clean(query) in clean(items.iloc[item_index[item_id]].item_title_raw)
+    for query, item_id in zip(val.search_query, val.item_id)
+])
+for name, mask in [("same location", val_same_location),
+                   ("other location", ~val_same_location),
+                   ("rare query", val_rare_query),
+                   ("common query", ~val_rare_query),
+                   ("full query in title", val_title_contains_query),
+                   ("no full query in title", ~val_title_contains_query)]:
+    if mask.any():
+        print(f"  {name}: recall={val_hits[mask].mean():.3f}, n={mask.sum()}",
+              flush=True)
 predictions = predictions[:len(queries)]
 
 answer = pd.DataFrame({"query_id": queries.query_id.astype(str),
